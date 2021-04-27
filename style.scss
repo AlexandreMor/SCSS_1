@@ -1,0 +1,28 @@
+$borderRadius:50%;
+
+@mixin ring ($w,$h,$color,$x) {
+  width:$w;
+  height:$h;
+  border:$w/20 solid $color; 
+  box-shadow: $x $x $x $color;
+}
+
+.red-ring {
+    border-radius:$borderRadius;
+    @include ring(60px,60px,darkorange,2px)
+}
+
+.yellow-ring {
+    border-radius:$borderRadius;
+    @include ring(200px,200px,yellow,2px)
+}
+
+
+
+@for $i from 1 through 6 {
+    .black-ring-#{$i} {
+    border-radius:$borderRadius;
+    padding:-15px;
+    @include ring(50px + $i*10,50px +$i*10,black,2px)
+    }
+}
